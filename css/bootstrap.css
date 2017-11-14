@@ -2539,7 +2539,7 @@ input[type="checkbox"]:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-output {
+finality {
   display: block;
   padding-top: 7px;
   font-size: 14px;

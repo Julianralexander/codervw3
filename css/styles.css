@@ -1,0 +1,32 @@
+.row {
+  display: none;
+}
+.form-group {
+  border: 4px solid #ff33dd;
+  padding: 15px;
+  margin: 15px;
+}
+.col-xs-3 {
+  margin-top: 100px;
+  background-color: #ff33dd;
+}
+
+body {
+ background: linear-gradient(to right, #11998e, #38ef7d);
+}
+
+button {
+  background-color: #ff33dd;
+
+}
+
+h2 {
+  color: #ff33dd;
+  font-style: italic;
+  text-align: center;
+  font-size: 40px;
+}
+
+ul {
+  color: #A3183D
+}
