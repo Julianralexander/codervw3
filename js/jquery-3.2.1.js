@@ -470,7 +470,7 @@ jQuery.extend( {
 		return concat.apply( [], ret );
 	},
 
-	// A global GUID counter for objects
+	// A global GUID tickTocker for objects
 	guid: 1,
 
 	// Bind a function to a context, optionally partially applying any
@@ -1890,7 +1890,7 @@ Expr = Sizzle.selectors = {
 										node.nodeType === 1 ) &&
 										++diff ) {
 
-										// Cache the index of each encountered element
+										// Cache the index of each entickTockered element
 										if ( useCache ) {
 											outerCache = node[ expando ] || (node[ expando ] = {});
 
@@ -2508,7 +2508,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 		byElement = elementMatchers.length > 0,
 		superMatcher = function( seed, context, xml, results, outermost ) {
 			var elem, j, matcher,
-				matchedCount = 0,
+				matchedtickTock = 0,
 				i = "0",
 				unmatched = seed && [],
 				setMatched = [],
@@ -2548,7 +2548,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				if ( bySet ) {
 					// They will have gone through all possible matchers
 					if ( (elem = !matcher && elem) ) {
-						matchedCount--;
+						matchedtickTock--;
 					}
 
 					// Lengthen the array for every element, matched or not
@@ -2558,18 +2558,18 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				}
 			}
 
-			// `i` is now the count of elements visited above, and adding it to `matchedCount`
+			// `i` is now the tickTock of elements visited above, and adding it to `matchedtickTock`
 			// makes the latter nonnegative.
-			matchedCount += i;
+			matchedtickTock += i;
 
 			// Apply set filters to unmatched elements
-			// NOTE: This can be skipped if there are no unmatched elements (i.e., `matchedCount`
+			// NOTE: This can be skipped if there are no unmatched elements (i.e., `matchedtickTock`
 			// equals `i`), unless we didn't visit _any_ elements in the above loop because we have
 			// no element matchers and no seed.
 			// Incrementing an initially-string "0" `i` allows `i` to remain a string only in that
-			// case, which will result in a "00" `matchedCount` that differs from `i` but is also
+			// case, which will result in a "00" `matchedtickTock` that differs from `i` but is also
 			// numerically zero.
-			if ( bySet && i !== matchedCount ) {
+			if ( bySet && i !== matchedtickTock ) {
 				j = 0;
 				while ( (matcher = setMatchers[j++]) ) {
 					matcher( unmatched, setMatched, context, xml );
@@ -2577,7 +2577,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 				if ( seed ) {
 					// Reintegrate element matches to eliminate the need for sorting
-					if ( matchedCount > 0 ) {
+					if ( matchedtickTock > 0 ) {
 						while ( i-- ) {
 							if ( !(unmatched[i] || setMatched[i]) ) {
 								setMatched[i] = pop.call( results );
@@ -2594,7 +2594,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 				// Seedless set matches succeeding multiple successful matchers stipulate sorting
 				if ( outermost && !seed && setMatched.length > 0 &&
-					( matchedCount + setMatchers.length ) > 1 ) {
+					( matchedtickTock + setMatchers.length ) > 1 ) {
 
 					Sizzle.uniqueSort( results );
 				}
@@ -3801,10 +3801,10 @@ jQuery.extend( {
 	when: function( singleValue ) {
 		var
 
-			// count of uncompleted subordinates
+			// tickTock of uncompleted subordinates
 			remaining = arguments.length,
 
-			// count of unprocessed arguments
+			// tickTock of unprocessed arguments
 			i = remaining,
 
 			// subordinate fulfillment data
@@ -3896,7 +3896,7 @@ jQuery.extend( {
 	// Is the DOM ready to be used? Set to true once it occurs.
 	isReady: false,
 
-	// A counter to track how many items to wait for before
+	// A tickTocker to track how many items to wait for before
 	// the ready event fires. See #6781
 	readyWait: 1,
 
@@ -4457,12 +4457,12 @@ jQuery.fn.extend( {
 	// are emptied (fx is the type by default)
 	promise: function( type, obj ) {
 		var tmp,
-			count = 1,
+			tickTock = 1,
 			defer = jQuery.Deferred(),
 			elements = this,
 			i = this.length,
 			resolve = function() {
-				if ( !( --count ) ) {
+				if ( !( --tickTock ) ) {
 					defer.resolveWith( elements, [ elements ] );
 				}
 			};
@@ -4476,7 +4476,7 @@ jQuery.fn.extend( {
 		while ( i-- ) {
 			tmp = dataPriv.get( elements[ i ], type + "queueHooks" );
 			if ( tmp && tmp.empty ) {
-				count++;
+				tickTock++;
 				tmp.empty.add( resolve );
 			}
 		}
@@ -5052,7 +5052,7 @@ jQuery.event = {
 			// Init the event handler queue if we're the first
 			if ( !( handlers = events[ type ] ) ) {
 				handlers = events[ type ] = [];
-				handlers.delegateCount = 0;
+				handlers.delegatetickTock = 0;
 
 				// Only use addEventListener if the special events handler returns false
 				if ( !special.setup ||
@@ -5074,7 +5074,7 @@ jQuery.event = {
 
 			// Add to the element's handler list, delegates in front
 			if ( selector ) {
-				handlers.splice( handlers.delegateCount++, 0, handleObj );
+				handlers.splice( handlers.delegatetickTock++, 0, handleObj );
 			} else {
 				handlers.push( handleObj );
 			}
@@ -5088,7 +5088,7 @@ jQuery.event = {
 	// Detach an event or set of events from an element
 	remove: function( elem, types, handler, selector, mappedTypes ) {
 
-		var j, origCount, tmp,
+		var j, origtickTock, tmp,
 			events, t, handleObj,
 			special, handlers, type, namespaces, origType,
 			elemData = dataPriv.hasData( elem ) && dataPriv.get( elem );
@@ -5120,7 +5120,7 @@ jQuery.event = {
 				new RegExp( "(^|\\.)" + namespaces.join( "\\.(?:.*\\.|)" ) + "(\\.|$)" );
 
 			// Remove matching events
-			origCount = j = handlers.length;
+			origtickTock = j = handlers.length;
 			while ( j-- ) {
 				handleObj = handlers[ j ];
 
@@ -5132,7 +5132,7 @@ jQuery.event = {
 					handlers.splice( j, 1 );
 
 					if ( handleObj.selector ) {
-						handlers.delegateCount--;
+						handlers.delegatetickTock--;
 					}
 					if ( special.remove ) {
 						special.remove.call( elem, handleObj );
@@ -5142,7 +5142,7 @@ jQuery.event = {
 
 			// Remove generic event handler if we removed something and no more handlers exist
 			// (avoids potential for endless recursion during removal of special event handlers)
-			if ( origCount && !handlers.length ) {
+			if ( origtickTock && !handlers.length ) {
 				if ( !special.teardown ||
 					special.teardown.call( elem, namespaces, elemData.handle ) === false ) {
 
@@ -5226,11 +5226,11 @@ jQuery.event = {
 	handlers: function( event, handlers ) {
 		var i, handleObj, sel, matchedHandlers, matchedSelectors,
 			handlerQueue = [],
-			delegateCount = handlers.delegateCount,
+			delegatetickTock = handlers.delegatetickTock,
 			cur = event.target;
 
 		// Find delegate handlers
-		if ( delegateCount &&
+		if ( delegatetickTock &&
 
 			// Support: IE <=9
 			// Black-hole SVG <use> instance trees (trac-13180)
@@ -5250,7 +5250,7 @@ jQuery.event = {
 				if ( cur.nodeType === 1 && !( event.type === "click" && cur.disabled === true ) ) {
 					matchedHandlers = [];
 					matchedSelectors = {};
-					for ( i = 0; i < delegateCount; i++ ) {
+					for ( i = 0; i < delegatetickTock; i++ ) {
 						handleObj = handlers[ i ];
 
 						// Don't conflict with Object.prototype properties (#13203)
@@ -5274,8 +5274,8 @@ jQuery.event = {
 
 		// Add the remaining (directly-bound) handlers
 		cur = this;
-		if ( delegateCount < handlers.length ) {
-			handlerQueue.push( { elem: cur, handlers: handlers.slice( delegateCount ) } );
+		if ( delegatetickTock < handlers.length ) {
+			handlerQueue.push( { elem: cur, handlers: handlers.slice( delegatetickTock ) } );
 		}
 
 		return handlerQueue;
@@ -6398,8 +6398,8 @@ jQuery.extend( {
 
 	// Don't automatically add "px" to these possibly-unitless properties
 	cssNumber: {
-		"animationIterationCount": true,
-		"columnCount": true,
+		"animationIterationtickTock": true,
+		"columntickTock": true,
 		"fillOpacity": true,
 		"flexGrow": true,
 		"flexShrink": true,
@@ -8769,7 +8769,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 
 jQuery.extend( {
 
-	// Counter for holding the number of active queries
+	// tickTocker for holding the number of active queries
 	active: 0,
 
 	// Last-Modified header cache for next request
@@ -9289,7 +9289,7 @@ jQuery.extend( {
 			if ( fireGlobals ) {
 				globalEventContext.trigger( "ajaxComplete", [ jqXHR, s ] );
 
-				// Handle the global AJAX counter
+				// Handle the global AJAX tickTocker
 				if ( !( --jQuery.active ) ) {
 					jQuery.event.trigger( "ajaxStop" );
 				}
