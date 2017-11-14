@@ -6,7 +6,7 @@
   padding: 15px;
   margin: 15px;
 }
-.col-xs-3 {
+.col-m-3 {
   margin-top: 100px;
   background-color: #ff33dd;
 }
@@ -17,7 +17,6 @@ body {
 
 button {
   background-color: #ff33dd;
-
 }
 
 h2 {

@@ -1,16 +1,16 @@
 //Back End
 var outputTexts = [];
 
-var number = function(parsedInput) {
- alert(typeof parsedInput)
- }
-
 var tickTock = function(parsedInput) {
  var digits = [];
  for (var i = 1; i <= parsedInput; i++) {
    digits.push(i);
  }
  return digits
+}
+
+var number = function(parsedInput) {
+  alert(typeof parsedInput)
 }
 
 var conditions = function(results) {
@@ -42,7 +42,7 @@ $(document).ready(function() {
       $("#unstyled").append("<li>" + outputText + "</li>");
     });
 
-    $("#origional").hide();
+    $("#original").hide();
     $(".row").show();
 
   });
